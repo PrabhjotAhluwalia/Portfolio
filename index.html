@@ -1,216 +1,627 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prabhjot Ahluwalia — Product Manager</title>
-<link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;700;800;900&family=Fraunces:ital,wght@0,300;0,600;1,300;1,600&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prabhjot Ahluwalia — Product Manager</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;700;800;900&family=Fraunces:ital,wght@0,300;0,600;1,300;1,600&family=Nunito:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .edu-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    @media(max-width:900px) {
+      .edu-grid-3 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .skills-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    @media(max-width:1100px) {
+      .skills-grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media(max-width:600px) {
+      .skills-grid-4 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .st-teal {
+      background: linear-gradient(135deg, #cffafe, #e0f7fa);
+      border: 2px solid #67e8f9;
+    }
+
+    .exp-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .exp-timeline::before {
+      content: '';
+      position: absolute;
+      left: 36px;
+      top: 8px;
+      bottom: 8px;
+      width: 3px;
+      background: linear-gradient(180deg, var(--mint2), var(--lav2));
+      border-radius: 2px;
+      z-index: 0;
+    }
+
+    .etl-item {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      padding: 16px 0;
+      position: relative;
+    }
+
+    .etl-dot {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      flex-shrink: 0;
+      border: 3px solid #fff;
+      box-shadow: 0 4px 16px rgba(100, 80, 160, .15);
+      z-index: 1;
+      position: relative;
+    }
+
+    .etl-body {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 20px 24px;
+      box-shadow: var(--shadow);
+      border: 2px solid transparent;
+      flex: 1;
+      cursor: none;
+      transition: transform .25s, box-shadow .25s, border-color .25s;
+    }
+
+    .etl-body:hover {
+      transform: translateX(6px);
+      box-shadow: var(--shadow-h);
+      border-color: var(--lavender);
+    }
+
+    .etl-co {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 900;
+      font-size: 17px;
+      color: var(--ink);
+    }
+
+    .etl-role {
+      font-size: 12px;
+      color: var(--lav2);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      margin: 2px 0 6px;
+    }
+
+    .etl-period {
+      font-size: 11px;
+      color: var(--ink3);
+      font-weight: 600;
+    }
+
+    .etl-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .etl-tag {
+      background: var(--bg);
+      border-radius: 100px;
+      padding: 4px 10px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--ink2);
+      border: 1.5px solid rgba(180, 160, 240, .25);
+    }
+
+    .etl-hint {
+      font-size: 12px;
+      color: var(--lav2);
+      font-weight: 700;
+      margin-top: 10px;
+    }
+  </style>
 </head>
+
 <body>
-<div class="cur-dot" id="curDot"></div>
-<div class="cur-ring" id="curRing"></div>
-<nav id="nav">
-  <a href="#hero" class="nav-logo"><span class="nav-dot"></span> Prabhjot Ahluwalia</a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li><li><a href="#experience">Experience</a></li>
-    <li><a href="#projects">Projects</a></li><li><a href="#skills">Skills</a></li>
-    <li><a href="#education">Education</a></li><li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
-<section id="hero">
-  <div class="hero-shapes"><div class="hs hs1"></div><div class="hs hs2"></div><div class="hs hs3"></div><div class="hs hs4"></div></div>
-  <div class="hero-content">
-    <div class="hero-left">
-      <div class="hero-eyebrow"><span class="wave-em">👋</span> Hey there, I'm Prabhjot!</div>
-      <h1 class="hero-name">Product<br><em>Manager</em></h1>
-      <p class="hero-tagline">I turn complex fintech infrastructure, 10B+ transactions, and regulatory constraints into products that scale — backed by a CS + MBA toolkit and 5 years of real-world impact.</p>
-      <div class="hero-pills">
-        <span class="pill p-mint">💳 Fintech & Payments</span><span class="pill p-lav">📊 Data-Driven PM</span>
-        <span class="pill p-peach">🚀 $440M Revenue Owner</span><span class="pill p-yel">🤖 AI/ML @ GT</span>
-        <span class="pill p-mint">💡 0→1 Builder</span><span class="pill p-lav">🇺🇸 US Citizen</span>
-      </div>
-      <div class="hero-ctas">
-        <a href="#experience" class="btn btn-main">See My Work ✨</a>
-        <a href="#contact" class="btn btn-out">Let's Talk 💬</a>
-      </div>
+  <div class="cur-dot" id="curDot"></div>
+  <div class="cur-ring" id="curRing"></div>
+  <nav id="nav">
+    <a href="#hero" class="nav-logo"><span class="nav-dot"></span> Prabhjot Ahluwalia</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section id="hero">
+    <div class="hero-shapes">
+      <div class="hs hs1"></div>
+      <div class="hs hs2"></div>
+      <div class="hs hs3"></div>
+      <div class="hs hs4"></div>
     </div>
-    <div class="hero-right">
-      <div class="hero-imgbox">
-        <div class="hero-imgbox-ph"><img src="assets/dp2.png"/></div>
+    <div class="hero-content">
+      <div class="hero-left">
+        <div class="hero-eyebrow"><span class="wave-em">👋</span> Hey there, I'm Prabhjot!</div>
+        <h1 class="hero-name">Product<br><em>Manager</em></h1>
+        <p class="hero-tagline">I turn complex fintech infrastructure, 10B+ transactions, and regulatory constraints
+          into products that scale — backed by a CS + MBA toolkit and 5 years at India's PayPal.</p>
+        <div class="hero-pills">
+          <span class="pill p-mint">💳 Fintech & Payments</span><span class="pill p-lav">🤖 AI Product Lead</span>
+          <span class="pill p-peach">🚀 $440M Revenue Owner</span><span class="pill p-yel">📊 Data-Driven PM</span>
+          <span class="pill p-mint">💡 0→1 Builder</span><span class="pill p-lav">🇺🇸 US Citizen</span>
+        </div>
+        <div class="hero-ctas">
+          <a href="#experience" class="btn btn-main">See My Work ✨</a>
+          <a href="assets/resume.pdf" download="Prabhjot_Ahluwalia_Resume.pdf" class="btn btn-out">Download Resume
+            📄</a>
+        </div>
       </div>
-      <div class="stat-float sf1"><span class="sf-icon">💳</span><div><div class="sf-num">30M Merchants</div><div class="sf-lbl">Paytm PG Portfolio</div></div></div>
-      <div class="stat-float sf2"><span class="sf-icon">🎓</span><div><div class="sf-num">Georgia Tech MSCS</div><div class="sf-lbl">AI Specialization</div></div></div>
-    </div>
-  </div>
-</section>
-<div class="wdiv" style="background:var(--bg)"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#ffffff"/></svg></div>
-<section id="about">
-  <div class="swrap">
-    <div class="about-grid">
-      <div class="about-ts rr" style="transition-delay:.15s">
-        <div class="chip c-lav">🌸 About Me</div>
-        <h2 class="stitle">I'm a PM who <span style="background:linear-gradient(135deg,#a78bfa,#67e8c8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">ships at scale.</span></h2>
-        <p>I'm a <strong>Senior Product Manager with 5 years of experience at Paytm</strong> — India's largest fintech — where I owned a $440M annual revenue portfolio across 30M merchants and 10B+ transactions. I've built pricing engines, automated $320M cost centers, and migrated millions of merchants off legacy systems.</p>
-        <p>At <strong>Georgia Tech (MSCS, AI specialization, GPA 3.66)</strong>, I'm deepening my foundation in machine learning, algorithms, and data systems — because the best PM for a technical product is one who truly understands what's under the hood.</p>
-        <p>My work sits at the intersection of <strong>financial infrastructure, compliance, and merchant UX</strong> — I'm equally comfortable in a reconciliation system design doc, a Figma wireframe, and a leadership OKR review. And I'm a US Citizen, so zero sponsorship hurdles.</p>
-        <p>If you're building something complex in payments, insurtech, or AI-driven SaaS — I'd love to be in the room. 😄</p>
-        <div class="fact-badges">
-          <span class="fb">💻 Ex-Engineer @ Infosys</span><span class="fb">🚀 Sr. PM @ Paytm</span><span class="fb">💼 5 Yrs Fintech</span>
-          <span class="fb">🤖 MSCS AI @ GT</span><span class="fb">🎓 FMS Delhi MBA</span><span class="fb">☕ Fuelled by Chai</span>
+      <div class="hero-right">
+        <div class="hero-imgbox">
+          <div class="hero-imgbox-ph"><img src="assets/dp2.png" /></div>
+        </div>
+        <div class="stat-float sf1"><span class="sf-icon">💳</span>
+          <div>
+            <div class="sf-num">30M Merchants</div>
+            <div class="sf-lbl">Paytm PG Portfolio</div>
+          </div>
+        </div>
+        <div class="stat-float sf2"><span class="sf-icon">🎓</span>
+          <div>
+            <div class="sf-num">GT MSCS · GPA 3.66</div>
+            <div class="sf-lbl">AI Specialization</div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-<div class="wdiv" style="background:#fff"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,20 C480,60 960,0 1440,30 L1440,60 L0,60 Z" fill="var(--bg)"/></svg></div>
-<section id="experience">
-  <div class="swrap">
-    <div class="ru" style="text-align:center;margin-bottom:12px;">
-      <div class="chip c-mint" style="margin:0 auto 14px;display:inline-flex;">🚀 Experience</div>
-      <h2 class="stitle" style="text-align:center;">Where I've worked<br><span style="background:linear-gradient(135deg,#34d399,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">&amp; what I shipped.</span></h2>
-      <p class="ssub" style="margin:0 auto 44px;text-align:center;">Tap any company card to see what I built there ✨</p>
-    </div>
-    <div class="exp-row ru" style="transition-delay:.2s">
-      <div class="exp-card active" onclick="openExp('ptm')">
-        <div class="exp-circle" style="background:var(--peach3);font-size:28px;">💳</div>
-        <div class="exp-cname">Paytm</div>
-        <div class="exp-role">Sr. Product Manager</div>
-        <div class="exp-period">Apr 2022 – Dec 2025</div>
-        <div class="exp-hint">Tap to explore →</div>
-      </div>
-      <div class="exp-card" onclick="openExp('gt')">
-        <div class="exp-circle" style="background:var(--mint3);font-size:28px;">🐝</div>
-        <div class="exp-cname">Georgia Tech</div>
-        <div class="exp-role">Graduate Assistant</div>
-        <div class="exp-period">Jan 2026 – Present</div>
-        <div class="exp-hint">Tap to explore →</div>
-      </div>
-      <div class="exp-card" onclick="openExp('infosys')">
-        <div class="exp-circle" style="background:var(--lav3);font-size:28px;">💻</div>
-        <div class="exp-cname">Infosys</div>
-        <div class="exp-role">Sr. Software Engineer</div>
-        <div class="exp-period">Aug 2019 – Aug 2020</div>
-        <div class="exp-hint">Tap to explore →</div>
-      </div>
-    </div>
-  </div>
-</section>
-<div class="modal-ov" id="expMO" onclick="closeExpMO(event)">
-  <div class="modal-box">
-    <button class="mcls" onclick="closeExpMOD()">✕</button>
-    <div class="modal-head"><div class="modal-logo-c" id="mLogo"></div><div><div class="modal-co" id="mCo"></div><div class="modal-ro" id="mRo"></div></div></div>
-    <div class="modal-items" id="mItems"></div>
-  </div>
-</div>
-<div class="wdiv" style="background:var(--bg)"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C360,0 1080,60 1440,20 L1440,60 L0,60 Z" fill="#ffffff"/></svg></div>
-<div class="wdiv" style="background:#fff"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,30 C720,65 1080,10 1440,40 L1440,60 L0,60 Z" fill="var(--bg)"/></svg></div>
-<section id="projects">
-  <div class="swrap">
-    <div class="ru" style="text-align:center;margin-bottom:48px;">
-      <div class="chip c-yel" style="margin:0 auto 14px;display:inline-flex;">💡 Projects &amp; Case Studies</div>
-      <h2 class="stitle" style="text-align:center;">Things I've<br><span style="background:linear-gradient(135deg,#fbbf24,#34d399);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">built &amp; solved.</span></h2>
-      <p class="ssub" style="margin:0 auto;text-align:center;">Click any card to read the full story 👇</p>
-    </div>
-    <div class="ru" style="transition-delay:.15s">
-      <div class="car-outer"><div class="car-track" id="carTrack">
-        <div class="cs-card" onclick="openCS(0)">
-          <div class="cs-img" style="background:var(--peach3);display:flex;align-items:center;justify-content:center;font-size:64px;">💳</div>
-          <div class="cs-body"><span class="cs-tag2" style="background:var(--peach3);color:#8e4a2e;">Paytm · Pricing Engine</span><div class="cs-title2">MDR Pricing Engine</div><div class="cs-desc2">Owned $440M revenue portfolio for 30M merchants. Identified margin leakage, built BIN-level differential charging, unlocked $0.5M in net new annual PAT without adding new merchant fees.<br><br><strong><i>Click to read the full story!</i></strong></div></div>
-        </div>
-        <div class="cs-card" onclick="openCS(1)">
-          <div class="cs-img" style="background:var(--lav3);display:flex;align-items:center;justify-content:center;font-size:64px;">🔁</div>
-          <div class="cs-body"><span class="cs-tag2" style="background:var(--lav3);color:#4c3a8e;">Paytm · Cost Ops</span><div class="cs-title2">Interchange Reconciliation</div><div class="cs-desc2">Discovered $320M cost center had zero automated auditing. Built a 15,000-rule reconciliation engine. Caught $300K in acquirer overcharges and prevented $400K in annual revenue loss.<br><br><strong><i>Click to read the full story!</i></strong></div></div>
-        </div>
-        <div class="cs-card" onclick="openCS(2)">
-          <div class="cs-img" style="background:var(--mint3);display:flex;align-items:center;justify-content:center;font-size:64px;">📄</div>
-          <div class="cs-body"><span class="cs-tag2" style="background:var(--mint3);color:#1a6b55;">Paytm · Automation</span><div class="cs-title2">Project BINARY</div><div class="cs-desc2">Invoicing for 30M merchants was done manually by a 50-person team. Built SAP middleware "BINARY" — automated 10M invoices/month, cut cycle time 80%, reduced ops team from 50 to 5.<br><br><strong><i>Click to read the full story!</i></strong></div></div>
-        </div>
-        <div class="cs-card" onclick="openCS(3)">
-          <div class="cs-img"><img src="assets/uselessGame.png"/></div>
-          <div class="cs-body"><span class="cs-tag2" style="background:var(--yellow);color:#6b5700;">Paytm · Merchant Growth</span><div class="cs-title2">Salesforce → Onboarding Engine</div><div class="cs-desc2">Led migration of 2.5M annual merchants from Salesforce to a custom onboarding engine. Eliminated $540K licensing costs and reduced fraud by 60% through native KYB integrations.<br><br><strong><i>Click to read the full story!</i></strong></div></div>
-        </div>
-        <div class="cs-card" onclick="openCS(4)">
-          <div class="cs-img"><img src="assets/RazorSmall.jpg"/></div>
-          <div class="cs-body"><span class="cs-tag2" style="background:var(--mint3);color:#1a6b55;">Paytm · Activation</span><div class="cs-title2">RuPay Card Activation</div><div class="cs-desc2">Mapped the full RuPay Credit Card activation funnel, found 80% drop-off at discovery. Built self-serve activation journeys and CleverTap nudges. Drove 300K monthly activations within 3 months.<br><br><strong><i>Click to read the full story!</i></strong></div></div>
-        </div>
-      </div></div>
-      <div class="car-btns">
-        <button class="car-btn" onclick="slide(-1)">←</button>
-        <button class="car-btn" onclick="slide(1)">→</button>
-      </div>
-    </div>
-  </div>
-</section>
-<section id="skills">
-  <div class="swrap">
-    <div class="ru" style="text-align:center;margin-bottom:48px;">
-      <div class="chip c-peach" style="margin:0 auto 14px;display:inline-flex;">🛠️ Skills</div>
-      <h2 class="stitle" style="text-align:center;">My full-stack<br><span style="background:linear-gradient(135deg,#fb923c,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">PM toolkit.</span></h2>
-    </div>
-    <div class="skills-grid">
-      <div class="sk-tile st-m ru"><span class="sk-icon">🎯</span><div class="sk-title">Core Product Skills</div><div class="sk-chips"><span class="sc">Product Strategy</span><span class="sc">Roadmapping</span><span class="sc">PRD Writing</span><span class="sc">A/B Testing</span><span class="sc">User Research</span><span class="sc">Go-To-Market</span><span class="sc">MDR & Pricing</span><span class="sc">Stakeholder Mgmt</span><span class="sc">OKR Cadence</span></div></div>
-      <div class="sk-tile st-l ru" style="transition-delay:.1s"><span class="sk-icon">📊</span><div class="sk-title">Data & Analytics</div><div class="sk-chips"><span class="sc">SQL</span><span class="sc">Python (Pandas/NumPy)</span><span class="sc">PySpark</span><span class="sc">AWS Athena</span><span class="sc">Cohort Analysis</span><span class="sc">Funnel Optimization</span><span class="sc">Google Analytics</span><span class="sc">Tableau</span><span class="sc">Amplitude</span></div></div>
-      <div class="sk-tile st-p ru" style="transition-delay:.2s"><span class="sk-icon">🔧</span><div class="sk-title">Tech & Tools</div><div class="sk-chips"><span class="sc">JIRA / Confluence</span><span class="sc">Figma</span><span class="sc">Postman</span><span class="sc">REST APIs</span><span class="sc">AWS (Solutions Architect)</span><span class="sc">GenAI Tools</span><span class="sc">CleverTap / Braze</span><span class="sc">SAP ERP</span><span class="sc">Git</span></div></div>
-    </div>
-  </div>
-</section>
-<div class="csmo" id="csmoOv" onclick="closeCSmO(event)">
-  <div class="csm-box">
-    <button class="csm-cls" onclick="closeCSMOD()">✕</button>
-    <div class="csm-banner" id="csmBanner"></div>
-    <div class="csm-ttl" id="csmTtl"></div>
-    <div class="csm-sub2" id="csmSub"></div>
-    <div id="csmBody"></div>
-  </div>
-</div>
-<div class="wdiv" style="background:var(--bg)"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,10 C360,55 1080,5 1440,45 L1440,60 L0,60 Z" fill="#ffffff"/></svg></div>
-<section id="education">
-  <div class="swrap">
-    <div class="ru" style="text-align:center;margin-bottom:48px;">
-      <div class="chip c-lav" style="margin:0 auto 14px;display:inline-flex;">🎓 Education</div>
-      <h2 class="stitle" style="text-align:center;">The foundation<br><span style="background:linear-gradient(135deg,#a78bfa,#fb923c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">behind it all.</span></h2>
-    </div>
-    <div class="edu-grid">
-      <div class="edu-card ec1 rl" data-em="🐝">
-        <div class="edu-per">Jan 2025 — May 2026 (Expected)</div>
-        <div class="edu-deg">M.S. Computer Science</div>
-        <div class="edu-sch">Georgia Institute of Technology · AI Specialization</div>
-        <div class="edu-gpa">⭐ GPA: 3.66 / 4.0</div>
-      </div>
-      <div class="edu-card ec2 rr" style="transition-delay:.15s" data-em="🏆">
-        <div class="edu-per">Sep 2020 — Apr 2022</div>
-        <div class="edu-deg">MBA — Marketing & Finance</div>
-        <div class="edu-sch">Faculty of Management Studies (FMS), Delhi · Top 5 B-School in India</div>
-        <p style="font-size:13px;color:var(--ink2);line-height:1.65;margin-top:12px;">Top 5% of batch. Focused on pricing strategy, financial analytics, and product marketing — the foundation for every commercial decision I made at Paytm.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;"><span class="sc" style="background:var(--lav3)">Top 5% of Class</span><span class="sc" style="background:var(--lav3)">Pricing Strategy</span><span class="sc" style="background:var(--lav3)">Financial Analytics</span><span class="sc" style="background:var(--lav3)">HSBC Intern</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-<div class="wdiv" style="background:#fff"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C480,5 960,60 1440,20 L1440,60 L0,60 Z" fill="var(--bg)"/></svg></div>
-<section id="contact">
-  <div class="swrap">
-    <div class="contact-grid">
-      <div class="contact-left rl">
-        <div class="chip c-mint" style="margin-bottom:16px;">💌 Let's Connect</div>
-        <h2 class="stitle">Let's build<br><span style="background:linear-gradient(135deg,#67e8c8,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">something great!</span></h2>
-        <p>I'm open to Senior PM / APM roles in fintech, payments, insurtech, or AI-driven SaaS — US-based, no sponsorship needed. If you're building something ambitious with complex backend infrastructure, I'd love to talk. 🚀</p>
-        <div class="cc-links">
-          <a href="mailto:ahluwaliaps@gmail.com" class="cc-card"><span class="cc-ico">✉️</span><div><div class="cc-lbl">Email</div><div class="cc-val">ahluwaliaps@gmail.com</div></div><span class="cc-arr">→</span></a>
-          <a href="tel:+14044646692" class="cc-card"><span class="cc-ico">📱</span><div><div class="cc-lbl">Phone</div><div class="cc-val">+1 (404) 464-6692</div></div><span class="cc-arr">→</span></a>
-          <a href="https://www.linkedin.com/in/prabhjot-ahluwalia/" target="_blank" class="cc-card"><span class="cc-ico">💼</span><div><div class="cc-lbl">LinkedIn</div><div class="cc-val">linkedin.com/in/prabhjot-ahluwalia</div></div><span class="cc-arr">→</span></a>
-          <a href="#" class="cc-card"><span class="cc-ico">📄</span><div><div class="cc-lbl">Resume</div><div class="cc-val">Download PDF</div></div><span class="cc-arr">→</span></a>
+  </section>
+
+  <div class="wdiv" style="background:var(--bg)"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#ffffff" />
+    </svg></div>
+
+  <section id="about">
+    <div class="swrap">
+      <div class="about-grid">
+        <div class="about-ts rr" style="transition-delay:.15s">
+          <div class="chip c-lav">🌸 About Me</div>
+          <h2 class="stitle">I'm a PM who <span
+              style="background:linear-gradient(135deg,#a78bfa,#67e8c8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">ships
+              at scale.</span></h2>
+          <p>I'm a <strong>Senior PM with 5 years at Paytm</strong> — India's largest fintech (think Stripe + Square +
+            PayPal combined). I owned a $440M annual revenue portfolio across 30M merchants and 10B+ transactions —
+            building pricing engines, automating $320M cost centers, and migrating millions of merchants off legacy
+            systems.</p>
+          <p>At <strong>Georgia Tech (MSCS, AI specialization, GPA 3.66)</strong>, I'm deepening that foundation —
+            studying Machine Learning, Big Data Systems, and Algorithms while working as a Graduate Assistant at
+            Scheller College of Business and building an AI-powered fan-engagement platform for Bobby Dodd Stadium.</p>
+          <p>I sit at the intersection of <strong>financial infrastructure, AI product strategy, and merchant
+              UX</strong> — equally at home in a system design doc, a Figma wireframe, or a C-suite OKR review.
+            <strong>US Citizen, zero sponsorship needed.</strong>
+          </p>
+          <div class="fact-badges">
+            <span class="fb">💻 Ex-Engineer @ Infosys</span><span class="fb">🚀 Sr. PM @ Paytm</span><span class="fb">💼
+              5 Yrs Fintech</span>
+            <span class="fb">🤖 MSCS AI @ GT</span><span class="fb">🎓 FMS Delhi MBA Top 5%</span><span class="fb">🇺🇸
+              US Citizen</span>
+          </div>
         </div>
       </div>
-      <div class="contact-deco rr" style="transition-delay:.2s">
-        <span class="big-float">🚀</span>
-        <span class="mf mf1">💡</span><span class="mf mf2">✨</span><span class="mf mf3">🎯</span>
+    </div>
+  </section>
+
+  <div class="wdiv" style="background:#fff"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,20 C480,60 960,0 1440,30 L1440,60 L0,60 Z" fill="var(--bg)" />
+    </svg></div>
+
+  <section id="experience">
+    <div class="swrap">
+      <div class="ru" style="text-align:center;margin-bottom:48px;">
+        <div class="chip c-mint" style="margin:0 auto 14px;display:inline-flex;">🚀 Experience</div>
+        <h2 class="stitle" style="text-align:center;">Where I've worked<br><span
+            style="background:linear-gradient(135deg,#34d399,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">&amp;
+            what I shipped.</span></h2>
+        <p class="ssub" style="margin:0 auto 44px;text-align:center;">Tap any card to explore what I built there ✨</p>
+      </div>
+      <div class="exp-timeline ru" style="transition-delay:.2s;max-width:760px;margin:0 auto;">
+
+        <div class="etl-item">
+          <div class="etl-dot" style="background:#fff;">
+            <img src="assets/gt.png" style="width:80%;height:80%;object-fit:contain;border-radius:50%;" />
+          </div>
+
+          <div class="etl-body" onclick="openExp('gt')">
+            <div class="etl-co">Georgia Institute of Technology</div>
+            <div class="etl-role">Graduate Assistant — Scheller College of Business</div>
+            <div class="etl-period">Jan 2026 – Present · Atlanta, GA</div>
+            <div class="etl-tags"><span class="etl-tag">GenAI Curriculum</span><span class="etl-tag">Smart Stadium
+                AI</span><span class="etl-tag">Fan Engagement</span><span class="etl-tag">PMF Strategy</span><span
+                class="etl-tag">IoT Vendors</span></div>
+            <div class="etl-hint">Tap to explore →</div>
+          </div>
+        </div>
+
+        <div class="etl-item">
+          <div class="etl-dot" style="background:#fff;">
+            <img src="assets/paytm.png" style="width:80%;height:80%;object-fit:contain;border-radius:50%;" />
+          </div>
+
+          <div class="etl-body" onclick="openExp('ptmsr')">
+            <div class="etl-co">Paytm — India's Largest Fintech</div>
+            <div class="etl-role">Senior Product Manager</div>
+            <div class="etl-period">Apr 2025 – Dec 2025 · Noida, India</div>
+            <div class="etl-tags"><span class="etl-tag">2 PMs + 1 DA managed</span><span class="etl-tag">$440M
+                Revenue</span><span class="etl-tag">MDR Pricing Engine</span><span class="etl-tag">RuPay
+                Journeys</span><span class="etl-tag">300K Activations/mo</span></div>
+            <div class="etl-hint">Tap to explore →</div>
+          </div>
+        </div>
+
+        <div class="etl-item">
+          <div class="etl-dot" style="background:#fff;">
+            <img src="assets/paytm.png" style="width:80%;height:80%;object-fit:contain;border-radius:50%;" />
+          </div>
+
+          <div class="etl-body" onclick="openExp('ptmpm')">
+            <div class="etl-co">Paytm — India's Largest Fintech</div>
+            <div class="etl-role">Product Manager</div>
+            <div class="etl-period">Apr 2022 – Mar 2025 · Noida, India</div>
+            <div class="etl-tags"><span class="etl-tag">9M+ Devices</span><span class="etl-tag">Project
+                BINARY</span><span class="etl-tag">Interchange Reco</span><span class="etl-tag">Salesforce
+                Migration</span><span class="etl-tag">KYB/AML</span><span class="etl-tag">$2M Subscriptions</span></div>
+            <div class="etl-hint">Tap to explore →</div>
+          </div>
+        </div>
+
+        <div class="etl-item">
+          <div class="etl-dot" style="background:#fff;">
+            <img src="assets/hsbc.png" style="width:80%;height:80%;object-fit:contain;border-radius:50%;" />
+          </div>
+
+          <div class="etl-body" onclick="openExp('hsbc')">
+            <div class="etl-co">HSBC</div>
+            <div class="etl-role">Project Manager — MBA Summer Intern</div>
+            <div class="etl-period">May 2021 – Jun 2021 · Remote</div>
+            <div class="etl-tags"><span class="etl-tag">Payroll Portfolio</span><span class="etl-tag">Value
+                Proposition</span><span class="etl-tag">Competitive Benchmarking</span></div>
+            <div class="etl-hint">Tap to explore →</div>
+          </div>
+        </div>
+
+        <div class="etl-item">
+          <div class="etl-dot" style="background:#fff;">
+            <img src="assets/infosys.png" style="width:80%;height:80%;object-fit:contain;border-radius:50%;" />
+          </div>
+
+          <div class="etl-body" onclick="openExp('infosys')">
+            <div class="etl-co">Infosys</div>
+            <div class="etl-role">Sr. Software Engineer — Specialist Programmer</div>
+            <div class="etl-period">Aug 2019 – Aug 2020 · Hyderabad, India</div>
+            <div class="etl-tags"><span class="etl-tag">MERN Full-Stack</span><span class="etl-tag">SDLC
+                Lead</span><span class="etl-tag">CSAT +50%</span><span class="etl-tag">6 Sprints Shipped</span></div>
+            <div class="etl-hint">Tap to explore →</div>
+          </div>
+        </div>
+
       </div>
     </div>
+  </section>
+
+  <div class="modal-ov" id="expMO" onclick="closeExpMO(event)">
+    <div class="modal-box">
+      <button class="mcls" onclick="closeExpMOD()">✕</button>
+      <div class="modal-head">
+        <div class="modal-logo-c" id="mLogo"></div>
+        <div>
+          <div class="modal-co" id="mCo"></div>
+          <div class="modal-ro" id="mRo"></div>
+        </div>
+      </div>
+      <div class="modal-items" id="mItems"></div>
+    </div>
   </div>
-</section>
-<footer>Made with 💚 by <span>Prabhjot Singh Ahluwalia</span> · Product Manager · Atlanta, GA</footer>
-<script src="script.js"></script>
+
+  <div class="wdiv" style="background:var(--bg)"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,40 C360,0 1080,60 1440,20 L1440,60 L0,60 Z" fill="#ffffff" />
+    </svg></div>
+  <div class="wdiv" style="background:#fff"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,30 C720,65 1080,10 1440,40 L1440,60 L0,60 Z" fill="var(--bg)" />
+    </svg></div>
+
+  <section id="projects">
+    <div class="swrap">
+      <div class="ru" style="text-align:center;margin-bottom:48px;">
+        <div class="chip c-yel" style="margin:0 auto 14px;display:inline-flex;">💡 Projects &amp; Case Studies</div>
+        <h2 class="stitle" style="text-align:center;">Things I've<br><span
+            style="background:linear-gradient(135deg,#fbbf24,#34d399);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">built
+            &amp; solved.</span></h2>
+        <p class="ssub" style="margin:0 auto;text-align:center;">Click any card to read the full story 👇</p>
+      </div>
+      <div class="ru" style="transition-delay:.15s">
+        <div class="car-outer">
+          <div class="car-track" id="carTrack">
+            <div class="cs-card" onclick="openCS(0)">
+              <div class="cs-img"
+                style="background:var(--peach3);display:flex;align-items:center;justify-content:center;font-size:64px;">
+                💳</div>
+              <div class="cs-body"><span class="cs-tag2" style="background:var(--peach3);color:#8e4a2e;">Paytm · Pricing
+                  Engine</span>
+                <div class="cs-title2">MDR Pricing Engine</div>
+                <div class="cs-desc2">Owned $440M revenue portfolio for 30M merchants. Built BIN-level differential
+                  charging for BNPL &amp; premium cards. Unlocked $0.5M net new annual PAT from data analysis
+                  alone.<br><br><strong><i>Click to read the full story!</i></strong></div>
+              </div>
+            </div>
+            <div class="cs-card" onclick="openCS(1)">
+              <div class="cs-img"
+                style="background:var(--lav3);display:flex;align-items:center;justify-content:center;font-size:64px;">🔁
+              </div>
+              <div class="cs-body"><span class="cs-tag2" style="background:var(--lav3);color:#4c3a8e;">Paytm · Cost
+                  Ops</span>
+                <div class="cs-title2">Interchange Reconciliation</div>
+                <div class="cs-desc2">$300M cost center with zero automated auditing. Built 15,000-rule engine. Caught
+                  $300K in bank overcharges and prevented $400K annual leakage — nobody was watching this blind
+                  spot.<br><br><strong><i>Click to read the full story!</i></strong></div>
+              </div>
+            </div>
+            <div class="cs-card" onclick="openCS(2)">
+              <div class="cs-img"
+                style="background:var(--mint3);display:flex;align-items:center;justify-content:center;font-size:64px;">
+                📄</div>
+              <div class="cs-body"><span class="cs-tag2" style="background:var(--mint3);color:#1a6b55;">Paytm ·
+                  Automation</span>
+                <div class="cs-title2">Project BINARY</div>
+                <div class="cs-desc2">50-person team manually invoicing 30M merchants. Built SAP middleware "BINARY" —
+                  10M invoices/month automated, 80% faster cycle time, ops team reduced 50 to 5.<br><br><strong><i>Click
+                      to read the full story!</i></strong></div>
+              </div>
+            </div>
+            <div class="cs-card" onclick="openCS(3)">
+              <div class="cs-img"
+                style="background:var(--yellow);display:flex;align-items:center;justify-content:center;font-size:64px;">
+                🔄</div>
+              <div class="cs-body"><span class="cs-tag2" style="background:var(--yellow);color:#6b5700;">Paytm · Digital
+                  Transformation</span>
+                <div class="cs-title2">Salesforce → Onboarding Engine</div>
+                <div class="cs-desc2">Migrated 2.5M annual merchants off $540K/yr Salesforce. Phased shadow-mode
+                  rollout. 60% fraud reduction via native KYB. Single source of truth for all downstream
+                  systems.<br><br><strong><i>Click to read the full story!</i></strong></div>
+              </div>
+            </div>
+            <div class="cs-card" onclick="openCS(4)">
+              <div class="cs-img"
+                style="background:var(--mint3);display:flex;align-items:center;justify-content:center;font-size:64px;">
+                📱</div>
+              <div class="cs-body"><span class="cs-tag2" style="background:var(--mint3);color:#1a6b55;">Paytm ·
+                  Activation &amp; Growth</span>
+                <div class="cs-title2">RuPay Card Activation</div>
+                <div class="cs-desc2">Found 80% funnel drop-off at discovery via Pulse event analytics. Redesigned
+                  Payment Settings page + CleverTap nudges. 300K monthly activations in 3 months — became #3 card
+                  instrument.<br><br><strong><i>Click to read the full story!</i></strong></div>
+              </div>
+            </div>
+            <div class="cs-card" onclick="openCS(5)">
+              <div class="cs-img"
+                style="background:linear-gradient(135deg,var(--mint3),var(--lav3));display:flex;align-items:center;justify-content:center;font-size:64px;">
+                🏟️</div>
+              <div class="cs-body"><span class="cs-tag2" style="background:var(--lav3);color:#4c3a8e;">Georgia Tech · AI
+                  Product</span>
+                <div class="cs-title2">Smart Stadium — Fan AI</div>
+                <div class="cs-desc2">Building fan-engagement and recommendation engine for Bobby Dodd Stadium (~55K
+                  attendees). Leading PMF strategy, IoT vendor partnerships, and Spring Boot backend
+                  development.<br><br><strong><i>Click to read the full story!</i></strong></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="car-btns">
+          <button class="car-btn" onclick="slide(-1)">←</button>
+          <button class="car-btn" onclick="slide(1)">→</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="swrap">
+      <div class="ru" style="text-align:center;margin-bottom:48px;">
+        <div class="chip c-peach" style="margin:0 auto 14px;display:inline-flex;">🛠️ Skills</div>
+        <h2 class="stitle" style="text-align:center;">My full-stack<br><span
+            style="background:linear-gradient(135deg,#fb923c,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">PM
+            toolkit.</span></h2>
+      </div>
+      <div class="skills-grid-4">
+        <div class="sk-tile st-m ru"><span class="sk-icon">🎯</span>
+          <div class="sk-title">Core Product</div>
+          <div class="sk-chips"><span class="sc">Product Strategy</span><span class="sc">Roadmapping</span><span
+              class="sc">PRD Writing</span><span class="sc">A/B Testing</span><span class="sc">User Research
+              (VoC)</span><span class="sc">Go-To-Market</span><span class="sc">OKR Cadence</span><span
+              class="sc">Stakeholder Mgmt</span></div>
+        </div>
+        <div class="sk-tile st-l ru" style="transition-delay:.08s"><span class="sk-icon">📊</span>
+          <div class="sk-title">Data & Analytics</div>
+          <div class="sk-chips"><span class="sc">SQL (Advanced)</span><span class="sc">Python · Pandas ·
+              NumPy</span><span class="sc">PySpark</span><span class="sc">AWS Athena / EMR</span><span class="sc">Funnel
+              Analysis</span><span class="sc">Cohort Analysis</span><span class="sc">Tableau</span><span
+              class="sc">Google Analytics</span></div>
+        </div>
+        <div class="sk-tile st-p ru" style="transition-delay:.16s"><span class="sk-icon">🔧</span>
+          <div class="sk-title">Tech & Tools</div>
+          <div class="sk-chips"><span class="sc">JIRA / Confluence</span><span class="sc">Figma</span><span
+              class="sc">Postman · REST APIs</span><span class="sc">AWS Certified Architect</span><span class="sc">SAP
+              ERP</span><span class="sc">CleverTap / Braze</span><span class="sc">Spring Boot</span><span
+              class="sc">Git</span></div>
+        </div>
+        <div class="sk-tile st-teal ru" style="transition-delay:.24s"><span class="sk-icon">🤖</span>
+          <div class="sk-title">AI / ML for PMs</div>
+          <div class="sk-chips"><span class="sc">LLM Prompting &amp; Evals</span><span class="sc">RAG
+              Architecture</span><span class="sc">ML Pipeline Design</span><span class="sc">Scikit-learn</span><span
+              class="sc">Feature Engineering</span><span class="sc">Recommendation Systems</span><span class="sc">Causal
+              Inference</span><span class="sc">GenAI Product Strategy</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="csmo" id="csmoOv" onclick="closeCSmO(event)">
+    <div class="csm-box">
+      <button class="csm-cls" onclick="closeCSMOD()">✕</button>
+      <div class="csm-banner" id="csmBanner"></div>
+      <div class="csm-ttl" id="csmTtl"></div>
+      <div class="csm-sub2" id="csmSub"></div>
+      <div id="csmBody"></div>
+    </div>
+  </div>
+
+  <div class="wdiv" style="background:var(--bg)"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,10 C360,55 1080,5 1440,45 L1440,60 L0,60 Z" fill="#ffffff" />
+    </svg></div>
+
+  <section id="education">
+    <div class="swrap">
+      <div class="ru" style="text-align:center;margin-bottom:48px;">
+        <div class="chip c-lav" style="margin:0 auto 14px;display:inline-flex;">🎓 Education</div>
+        <h2 class="stitle" style="text-align:center;">The foundation<br><span
+            style="background:linear-gradient(135deg,#a78bfa,#fb923c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">behind
+            it all.</span></h2>
+      </div>
+      <div class="edu-grid-3">
+
+        <div class="edu-card ec1 rl" data-em="🐝">
+          <div class="edu-per">Jan 2025 — May 2026 (Expected)</div>
+          <div class="edu-deg">M.S. Computer Science</div>
+          <div class="edu-sch">Georgia Institute of Technology · AI Specialization</div>
+          <div class="edu-gpa">⭐ GPA: 3.66 / 4.0</div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;">
+            <span class="sc" style="background:var(--mint3)">Machine Learning</span>
+            <span class="sc" style="background:var(--mint3)">Big Data Analytics</span>
+            <span class="sc" style="background:var(--mint3)">HCI</span>
+            <span class="sc" style="background:var(--mint3)">Graduate Algorithms</span>
+          </div>
+        </div>
+
+        <div class="edu-card ec2 ru" style="transition-delay:.1s" data-em="🏆">
+          <div class="edu-per">Sep 2020 — Apr 2022</div>
+          <div class="edu-deg">MBA — Marketing &amp; Finance</div>
+          <div class="edu-sch">Faculty of Management Studies (FMS), Delhi · Top 5 B-School in India</div>
+          <div class="edu-gpa">⭐ GPA: 8.15 / 10 · Top 5% of Class</div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;">
+            <span class="sc" style="background:var(--lav3)">Pricing Strategy</span>
+            <span class="sc" style="background:var(--lav3)">Financial Analytics</span>
+            <span class="sc" style="background:var(--lav3)">HSBC Summer Intern</span>
+          </div>
+        </div>
+
+        <div class="edu-card rr" style="border:2.5px solid var(--yel2);transition-delay:.2s" data-em="💡">
+          <div class="edu-per">Aug 2015 — May 2019</div>
+          <div class="edu-deg">B.Tech — Information Technology</div>
+          <div class="edu-sch">Delhi Technological University (DTU) · Delhi, India</div>
+          <div class="edu-gpa">⭐ GPA: 7.57 / 10.0</div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;">
+            <span class="sc" style="background:var(--yellow)">Full-Stack Dev</span>
+            <span class="sc" style="background:var(--yellow)">Data Structures</span>
+            <span class="sc" style="background:var(--yellow)">Engineering Foundation</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="wdiv" style="background:#fff"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,40 C480,5 960,60 1440,20 L1440,60 L0,60 Z" fill="var(--bg)" />
+    </svg></div>
+
+  <section id="contact">
+    <div class="swrap">
+      <div class="contact-grid">
+        <div class="contact-left rl">
+          <div class="chip c-mint" style="margin-bottom:16px;">💌 Let's Connect</div>
+          <h2 class="stitle">Let's build<br><span
+              style="background:linear-gradient(135deg,#67e8c8,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">something
+              great!</span></h2>
+          <p>Open to Senior PM / APM roles in fintech, payments, insurtech, or AI SaaS — US-based, no sponsorship
+            needed. If you're building something complex with real backend stakes, I'd love to be in the room. 🚀</p>
+          <div class="cc-links">
+            <a href="mailto:ahluwaliaps@gmail.com" class="cc-card"><span class="cc-ico">✉️</span>
+              <div>
+                <div class="cc-lbl">Email</div>
+                <div class="cc-val">ahluwaliaps@gmail.com</div>
+              </div><span class="cc-arr">→</span>
+            </a>
+            <a href="tel:+14044646692" class="cc-card"><span class="cc-ico">📱</span>
+              <div>
+                <div class="cc-lbl">Phone</div>
+                <div class="cc-val">+1 (404) 464-6692</div>
+              </div><span class="cc-arr">→</span>
+            </a>
+            <a href="https://www.linkedin.com/in/prabhjot-ahluwalia/" target="_blank" class="cc-card"><span
+                class="cc-ico">💼</span>
+              <div>
+                <div class="cc-lbl">LinkedIn</div>
+                <div class="cc-val">linkedin.com/in/prabhjot-ahluwalia</div>
+              </div><span class="cc-arr">→</span>
+            </a>
+            <a href="assets/resume.pdf" download="Prabhjot_Ahluwalia_Resume.pdf" class="cc-card"><span
+                class="cc-ico">📄</span>
+              <div>
+                <div class="cc-lbl">Resume</div>
+                <div class="cc-val">Download PDF · US Citizen · No Sponsorship</div>
+              </div><span class="cc-arr">→</span>
+            </a>
+          </div>
+        </div>
+        <div class="contact-deco rr" style="transition-delay:.2s">
+          <span class="big-float">🚀</span>
+          <span class="mf mf1">💡</span><span class="mf mf2">✨</span><span class="mf mf3">🎯</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>Made with 💚 by <span>Prabhjot Singh Ahluwalia</span> · Product Manager · Atlanta, GA</footer>
+  <script src="script.js"></script>
 </body>
+
 </html>
