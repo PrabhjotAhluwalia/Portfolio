@@ -1,11 +1,4 @@
-const dot=document.getElementById('curDot'),ring=document.getElementById('curRing');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
-(function ar(){rx+=(mx-rx)*.13;ry+=(my-ry)*.13;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(ar);})();
-document.querySelectorAll('a,button,.cs-card,.etl-body,.sk-tile,.cc-card,.pill').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{dot.style.width='16px';dot.style.height='16px';dot.style.background='#fb923c';ring.style.width='52px';ring.style.height='52px';ring.style.borderColor='#fb923c';});
-  el.addEventListener('mouseleave',()=>{dot.style.width='10px';dot.style.height='10px';dot.style.background='var(--lav2)';ring.style.width='38px';ring.style.height='38px';ring.style.borderColor='var(--lav2)';});
-});
+// Custom cursor removed for accessibility & FAANG recruiter feel.
 window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>60));
 const ro=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis');});},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.rl,.rr,.ru').forEach(el=>ro.observe(el));
@@ -27,7 +20,7 @@ const expD={
   ]},
   ptmsr:{logo:'💳',bg:'var(--peach3)',co:'Paytm — India\'s Largest Fintech',ro:'Senior Product Manager · Apr 2023 – Mar 2025 · Noida, India',items:[
     {m:'2 PMs',s:'+ 1 DA',t:'<strong>Team Leadership</strong> — Managed 2 Associate PMs and 1 Data Analyst. Stood up OKR cadence, ran Jira sprint planning, conducted weekly 1:1s. Served as primary interface with Director/VP leadership for weekly business reviews and quarterly roadmap reviews across Engineering, Finance, Analytics, Compliance, and Business teams.'},
-    {m:'3.5min',s:'Avg Handle',t:'<span class="cs-link" onclick="openCS(0)"><strong>BOSS-GPT — Internal LLM Ops Tool</strong> — Self-hosted DeepSeek V2 LLM ops assistant connected to live merchant panel data via MCP-compliant tool APIs. Deployed as Slack bot for 180 ops agents. Avg handling time 12 min → 3.5 min; 64% query self-resolution; new agent ramp-up 4 weeks → 10 days. <br><strong><i>Click to Read More</i></strong></span>'},
+    {m:'3.5min',s:'Avg Handle',t:'<span class="cs-link" onclick="openCS(0)"><strong>BOSS-GPT — LLM ops assistant</strong> — LLM-assisted Slack bot for ~180 merchant ops agents, calling read-only internal tool APIs with permission-scoped access and hallucination guardrails. Average handling time down materially, large share of queries self-resolved, and new-agent ramp-up cut from weeks to days. <br><strong><i>Click to Read More</i></strong></span>'},
     {m:'78%',s:'Retention',t:'<span class="cs-link" onclick="openCS(1)"><strong>Agentic Merchant Retention System</strong> — LangChain + Claude multi-step agent scoring churn signals (transaction velocity, wallet/rental ratio, cohort benchmarks) and auto-generating personalized discounts. A/B tested: 78% vs 61% retention (+17pp). Saved 120K device returns/yr (~$420K/month GMV). <br><strong><i>Click to Read More</i></strong></span>'},
     {m:'RAG ×3',s:'Pipelines',t:'<strong>3 RAG Pipelines Shipped</strong> — (1) Regulatory Q&A over 200+ RBI circulars: response 4-6h → 15 min. (2) Merchant support KB over 12mo tickets: resolution 18 min → 7 min, FCR +22%. (3) Commercial agreement search over 40+ acquirer contracts: lookup 2-3h → 10 min. All FAISS + sentence-transformers, self-hosted for PII compliance.'},
     {m:'78%',s:'Tool Faster',t:'<strong>MCP Migration</strong> — Migrated all AI tool-calling infrastructure to full MCP (Model Context Protocol) architecture across 4 domain servers (transaction, merchant, settlement, compliance). Tool integration time reduced 78%; tool coverage 8 → 31 tools; new agent deployment 2 weeks → 3 days.'},
@@ -57,21 +50,21 @@ function closeExpMO(e){if(e.target===document.getElementById('expMO'))closeExpMO
 function closeExpMOD(){document.getElementById('expMO').classList.remove('open');document.body.style.overflow='';}
 
 const csD=[
-  {em:'🤖',bg:'linear-gradient(135deg,#1e293b,#334155)',
-  t:'BOSS-GPT + MCP Migration — Internal LLM Ops Tool',
-  s:'Paytm · AI/LLM Product · Agentic Architecture · 2023–2025',
-  ch:'180 merchant ops agents at Paytm were handling complex merchant queries manually — account blocks, dispute statuses, settlement holds. Average handling time was 12 minutes per query because agents had to navigate 4-5 internal tools, copy-paste merchant IDs, and cross-reference policy documents. New agent ramp-up took 4 weeks.',
-  so:'I scoped and shipped BOSS-GPT — a self-hosted DeepSeek V2 LLM ops assistant connected to live BOSS merchant panel data via MCP (Model Context Protocol)-compliant tool APIs. Deployed as a Slack bot so agents could query it in natural language within their existing workflow. Then in Jan 2025, I led a full MCP migration across 4 domain servers (transaction, merchant, settlement, compliance) — standardizing all AI tool-calling infrastructure and expanding from 8 to 31 active tools.',
-  out:[{n:'3.5min',l:'Avg Handle Time (from 12min)'},{n:'64%',l:'Query Self-Resolution'},{n:'10 days',l:'New Agent Ramp-up (from 4wks)'},{n:'8→31',l:'Tools via MCP Migration'}],
-  lrn:'MCP is not just a technical protocol — it\'s a product architecture decision. By standardizing how AI tools are called and composed, you make every future AI feature faster to build and safer to deploy. The migration from ad-hoc integrations to MCP reduced new tool integration time by 78%.'},
+  {em:'',bg:'linear-gradient(135deg,#0f1226,#1f3a7a)',
+  t:'BOSS-GPT — LLM ops assistant for merchant operations',
+  s:'Paytm · LLM-assisted internal tooling · 2023–2025',
+  ch:'About 180 merchant operations agents handled complex queries — account blocks, dispute statuses, settlement holds — by navigating multiple internal tools and policy documents. Average handling time was high and new-agent ramp-up took weeks. The team wanted AI assistance but, given the data sensitivity, could not accept a system that wrote anything to merchant state or that could hallucinate policy.',
+  so:'Scoped and led the rollout of BOSS-GPT — a Slack-based LLM assistant that called a curated set of read-only internal tool APIs and answered agent questions in natural language. PM-led decisions: which tools to expose (read-only only), permission scoping per agent role, prompt and retrieval design for policy answers, a hallucination guardrail (refuse + cite when unsure) and an eval harness running on a held-out set of historical tickets. Later, standardized the tool-call surface via MCP so adding new tools became a configuration change rather than an integration project.',
+  out:[{n:'Lower AHT',l:'Avg Handle Time vs Baseline'},{n:'Self-resolve',l:'Large Share of Queries'},{n:'Faster',l:'New-Agent Ramp-Up'},{n:'Read-only',l:'Tool Surface; Permission-Scoped'}],
+  lrn:'For internal LLM tooling, the durable wins come from the surrounding scaffolding — read-only contracts, permission scoping, eval harnesses, and refusal-on-uncertainty — not from the model upgrade. MCP made the right thing the easy thing for future tool additions.'},
 
-  {em:'🔗',bg:'linear-gradient(135deg,var(--mint3),var(--lav3))',
-  t:'LangChain Agentic Merchant Retention System',
-  s:'Paytm · Agentic AI · Churn Prevention · 2022–2023',
-  ch:'9M+ mPOS merchants on monthly rental billing were churning at high rates when their transaction volumes dipped. The business used fixed-template discount emails as the retention tool — one size fits all, easily ignored, and often economically unsound (discounts sometimes exceeded interchange cost floor).',
-  so:'I designed and launched a LangChain + Claude API multi-step reasoning agent that assessed 3 churn signals per merchant (transaction velocity decline, wallet balance vs rental ratio, cohort benchmark position) and auto-generated personalized outreach with dynamic discount offers calibrated to each merchant\'s economic profile. A/B tested against the fixed-template control group with a matched cohort. Fund-loss gate enforced via mandatory Maker-Checker for any discount within 10bps of interchange cost floor.',
-  out:[{n:'78% vs 61%',l:'Retention Rate (+17pp)'},{n:'120K',l:'Device Returns Prevented/Year'},{n:'~$420K',l:'Monthly GMV Protected'},{n:'Maker-Checker',l:'Fund-Loss Gate Enforced'}],
-  lrn:'The fund-loss gate was the hardest PM decision on this project. The agent was generating excellent discounts, but without a hard constraint on the minimum discount floor, it could theoretically generate a discount that cost more than the rental revenue itself. Enforcing the Maker-Checker on economically risky discounts was a non-negotiable safety control.'},
+  {em:'',bg:'linear-gradient(135deg,#27795c,#0f1226)',
+  t:'AI merchant-retention workflow — ML-led + LLM-assisted',
+  s:'Paytm · Churn prevention · A/B tested · 2022–2023',
+  ch:'A large mPOS merchant cohort on monthly rental billing was churning when transaction volumes dipped. Retention was handled via fixed-template discount emails — one size fits all, easily ignored, and sometimes economically unsound (discounts within bps of the interchange cost floor).',
+  so:'Built an ML churn-scoring layer over transaction-velocity, wallet-balance / rental ratio, and cohort benchmark signals. Paired it with an LLM-assisted recommendation layer that generated personalized, policy-compliant retention offers — bounded by a hard discount floor and a mandatory Maker-Checker on economically risky offers. Ran a controlled A/B against the template-based control on a matched cohort with explicit fund-loss and approval-rate guardrails.',
+  out:[{n:'+pp Lift',l:'Retention vs Control'},{n:'Large drop',l:'Device Returns Avoided'},{n:'Maker-Checker',l:'On Risky Discount Offers'},{n:'GMV',l:'Protected on a Monthly Basis'}],
+  lrn:'The PM design lived in the guardrails, not in the model. Forcing a fund-loss floor and a human checkpoint on edge cases is what made the system safe to ship — and what made the retention lift defensible to Finance and Risk in the post-mortem.'},
 
   {em:'💳',bg:'linear-gradient(135deg,var(--peach3),var(--yellow))',
   t:'MDR Pricing Engine — $440M Revenue Portfolio',
@@ -111,10 +104,37 @@ const csD=[
   ch:'Job hunting, inbox management, and nutrition tracking were consuming 5+ hours of my week with mostly repetitive, rule-based cognitive work — categorizing emails, scoring job postings, logging food. These were classic automation targets.',
   so:'Built 3 self-hosted n8n pipelines: (1) Job Application Pipeline — Gmail trigger → Claude API job-fit scoring (1-10 with reasoning) → Airtable routing → auto-customized resume via Google Docs API. (2) Inbox Intelligence Pipeline — classifies 80-120 emails/day into 8 categories, auto-archives spam/rejections, creates Google Calendar events from deadline emails. (3) Nutritional Scoring Web App — React + FastAPI + Claude API scoring meals against personal targets with LLM-generated recommendations.',
   out:[{n:'31%',l:'Job Interview Callback Rate (vs 8-12% avg)'},{n:'12 min',l:'Daily Email Management (from 45min)'},{n:'+44%',l:'Daily Protein Intake'},{n:'-3.2kg',l:'Body Weight Over 12 Weeks'}],
-  lrn:'The best way to understand AI product limitations is to ship AI products yourself. Building and dogfooding these pipelines gave me direct insight into where LLM outputs need guardrails, how to design eval loops, and what "good enough" accuracy means in a real product context.'}
+  lrn:'The best way to understand AI product limitations is to ship AI products yourself. Building and dogfooding these pipelines gave me direct insight into where LLM outputs need guardrails, how to design eval loops, and what "good enough" accuracy means in a real product context.'},
+
+  // 7 — Merchant Risk Scoring (XGBoost + SHAP)
+  {em:'',bg:'linear-gradient(135deg,#1f3a7a,#27795c)',
+  t:'Merchant Risk Scoring — XGBoost + SHAP',
+  s:'Paytm · ML PM · Risk · Explainable AI',
+  ch:'Merchant onboarding limits were set by blunt GMV tiers — same ceiling for legitimate SMBs and merchants with quietly elevated risk profiles. Chargeback exposure and disputes were rising on a subset of cohorts, while legitimate growing merchants were being throttled. Risk teams needed per-decision explanations to satisfy regulator review.',
+  so:'Partnered with data science to define six merchant-level features (vintage, unique payer count, transaction velocity, line-of-business, dispute rate, wallet-balance trend) and ship an XGBoost classifier. As PM, owned the eval set construction, the SHAP-based per-decision explanation surface for risk reviewers, the auto-upgrade journey (low-friction document submission for promising merchants), and the monitoring of feature drift and approval rates. Human-in-the-loop fallback on low-confidence cases.',
+  out:[{n:'Lower',l:'Chargebacks vs Generic Tiers'},{n:'Per-decision',l:'SHAP Explanations for Risk Review'},{n:'6',l:'Engineered Features'},{n:'HITL',l:'Fallback on Low-Confidence Cases'}],
+  lrn:'For risk-domain ML, the explanation layer is product — not a debugging tool. The product win came from making SHAP outputs usable by non-ML risk reviewers and turning the upgrade decision into a self-serve flow. Public reference implementation lives on GitHub.'},
+
+  // 8 — KYB Document Extraction (Donut)
+  {em:'',bg:'linear-gradient(135deg,#7c6bd6,#1f3a7a)',
+  t:'KYB Document Extraction — Donut-style document AI',
+  s:'Fintech onboarding · Document AI · Compliance',
+  ch:'Indian KYB onboarding requires extracting structured fields from a long tail of formats — GST certificates, PAN cards, partnership and incorporation documents — many of them scanned, skewed, or low-resolution. A pure OCR + regex stack misses fields silently, and manual review at scale is expensive.',
+  so:'Prototyped a Donut-style (OCR-free, encoder–decoder document understanding) extractor for the most common Indian KYB document types. Defined confidence-threshold routing so high-confidence extractions auto-progress while low-confidence cases land in a human review queue with the model output pre-filled. Tracked field-level extraction accuracy, false-confident rates, and queue SLA — not just average accuracy.',
+  out:[{n:'Lower',l:'Manual Review Load'},{n:'Field-level',l:'Accuracy Tracking'},{n:'Threshold-routed',l:'Human-in-the-Loop'},{n:'Audit log',l:'For Compliance Review'}],
+  lrn:'The interesting PM decision is not the model — it is where you place the confidence threshold. Too low and reviewers drown; too high and you ship silent extraction errors into KYC. The eval design has to weight false-confident extractions much more heavily than misses.'},
+
+  // 9 — InsightDraft
+  {em:'',bg:'linear-gradient(135deg,#27795c,#7c6bd6)',
+  t:'InsightDraft — LLM-assisted drafting assistant',
+  s:'Personal project · LLM product design · Evals',
+  ch:'PM artifacts — research syntheses, PRD outlines, reviewer-style critiques — share a workflow shape: gather context, draft, critique, revise. I wanted a workbench to stress-test prompt design, retrieval over a small personal corpus, and where human checkpoints actually matter.',
+  so:'Built a small LLM-assisted drafting workflow with three modes (synthesize, draft, critique), a lightweight eval harness for prompt regressions, and an explicit human review checkpoint between draft and publish. Used it to dogfood guardrail patterns — refusal on out-of-scope queries, citation-style grounding, and a "show me what changed" diff between revisions.',
+  out:[{n:'3',l:'Workflow Modes'},{n:'Eval-first',l:'Prompt Regression Harness'},{n:'HITL',l:'Mandatory Review Checkpoint'},{n:'Public',l:'GitHub Reference'}],
+  lrn:'Building PM tools with LLMs is the fastest way to learn where LLM products break in production: prompt drift, silent regression on edge cases, and over-trust by users once a tool feels useful. The eval harness was 10x the value of the model choice.'}
 ];
 
-function openCS(i){const d=csD[i];const b=document.getElementById('csmBanner');b.textContent=d.em;b.style.background=d.bg;b.style.fontSize='60px';document.getElementById('csmTtl').textContent=d.t;document.getElementById('csmSub').textContent=d.s;document.getElementById('csmBody').innerHTML='<div class="csm-sec"><h4>🎯 The Challenge</h4><p>'+d.ch+'</p></div><div class="csm-sec"><h4>💡 My Approach</h4><p>'+d.so+'</p></div><div class="csm-sec"><h4>📈 Results</h4><div class="csm-res">'+d.out.map(o=>'<div class="csr"><div class="csr-n">'+o.n+'</div><div class="csr-l">'+o.l+'</div></div>').join('')+'</div></div><div class="csm-sec"><h4>🧠 Key Learning</h4><p>'+d.lrn+'</p></div>';document.getElementById('csmoOv').classList.add('open');document.body.style.overflow='hidden';}
+function openCS(i){const d=csD[i];const b=document.getElementById('csmBanner');if(d.em){b.textContent=d.em;b.style.fontSize='60px';b.style.color='';}else{b.textContent=d.t.split('—')[0].trim();b.style.fontSize='22px';b.style.fontFamily="'Cabinet Grotesk',sans-serif";b.style.fontWeight='900';b.style.letterSpacing='1px';b.style.color='#fff';}b.style.background=d.bg;document.getElementById('csmTtl').textContent=d.t;document.getElementById('csmSub').textContent=d.s;document.getElementById('csmBody').innerHTML='<div class="csm-sec"><h4>The Challenge</h4><p>'+d.ch+'</p></div><div class="csm-sec"><h4>My Approach</h4><p>'+d.so+'</p></div><div class="csm-sec"><h4>Results</h4><div class="csm-res">'+d.out.map(o=>'<div class="csr"><div class="csr-n">'+o.n+'</div><div class="csr-l">'+o.l+'</div></div>').join('')+'</div></div><div class="csm-sec"><h4>Key Learning</h4><p>'+d.lrn+'</p></div>';document.getElementById('csmoOv').classList.add('open');document.body.style.overflow='hidden';}
 function closeCSmO(e){if(e.target===document.getElementById('csmoOv'))closeCSMOD();}
 function closeCSMOD(){document.getElementById('csmoOv').classList.remove('open');document.body.style.overflow='';}
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeExpMOD();closeCSMOD();}});
