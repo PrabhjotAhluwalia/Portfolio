@@ -40,6 +40,35 @@
 .etl-tag{background:var(--bg);border-radius:100px;padding:4px 10px;font-size:11px;font-weight:700;color:var(--ink2);border:1px solid rgba(15,18,38,.10);}
 .etl-hint{font-size:12px;color:var(--accent);font-weight:700;margin-top:10px;}
 .new-badge{background:var(--accent2);color:#fff;font-size:10px;font-weight:800;padding:2px 8px;border-radius:100px;margin-left:8px;vertical-align:middle;text-transform:uppercase;letter-spacing:.6px;}
+#build{background:var(--white);}
+.bp-cat{margin-top:48px;}
+.bp-cat:first-of-type{margin-top:0;}
+.bp-cat-head{display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid rgba(15,18,38,.10);}
+.bp-cat-title{font-family:'Cabinet Grotesk',sans-serif;font-weight:900;font-size:20px;color:var(--ink);letter-spacing:-.3px;}
+.bp-cat-sub{font-size:12px;font-weight:700;color:var(--ink3);text-transform:uppercase;letter-spacing:.8px;}
+.bp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+.bp-card{background:var(--bg);border:1px solid rgba(15,18,38,.10);border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:10px;transition:transform .25s,box-shadow .25s,border-color .25s;}
+.bp-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-h);border-color:rgba(15,18,38,.20);}
+.bp-card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;}
+.bp-name{font-family:'Cabinet Grotesk',sans-serif;font-weight:900;font-size:17px;color:var(--ink);line-height:1.25;}
+.bp-stack{font-size:11px;color:var(--ink3);font-weight:700;text-transform:uppercase;letter-spacing:.6px;margin-top:4px;}
+.bp-flag{background:var(--accent2);color:#fff;font-size:9px;font-weight:800;padding:3px 8px;border-radius:100px;text-transform:uppercase;letter-spacing:.6px;flex-shrink:0;}
+.bp-flag.live{background:var(--accent);}
+.bp-meta{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;font-size:12.5px;color:var(--ink2);line-height:1.55;margin-top:4px;}
+.bp-meta dt{font-weight:800;color:var(--ink);font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding-top:2px;}
+.bp-meta dd{margin:0;}
+.bp-links{display:flex;gap:8px;margin-top:6px;flex-wrap:wrap;}
+.bp-link{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;padding:6px 12px;border-radius:100px;background:var(--white);color:var(--ink);text-decoration:none;border:1px solid rgba(15,18,38,.14);transition:background .2s,color .2s,border-color .2s;}
+.bp-link:hover{background:var(--ink);color:#fff;border-color:var(--ink);}
+.bp-link.primary{background:var(--ink);color:#fff;border-color:var(--ink);}
+.bp-link.primary:hover{background:var(--accent);border-color:var(--accent);}
+.bp-mini{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px;}
+.bp-mini-card{background:var(--bg);border:1px solid rgba(15,18,38,.08);border-radius:14px;padding:16px 18px;}
+.bp-mini-name{font-family:'Cabinet Grotesk',sans-serif;font-weight:800;font-size:14px;color:var(--ink);margin-bottom:4px;}
+.bp-mini-desc{font-size:12px;color:var(--ink2);line-height:1.5;margin-bottom:8px;}
+.bp-mini a{font-size:11px;font-weight:800;color:var(--accent);text-decoration:none;text-transform:uppercase;letter-spacing:.5px;}
+.bp-mini a:hover{text-decoration:underline;}
+@media(max-width:900px){.bp-grid{grid-template-columns:1fr;}.bp-mini{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -49,7 +78,7 @@
   <a href="#hero" class="nav-logo"><span class="nav-dot"></span> Prabhjot Ahluwalia</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li><li><a href="#experience">Experience</a></li>
-    <li><a href="#projects">Projects</a></li><li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li><li><a href="#build">Build</a></li><li><a href="#skills">Skills</a></li>
     <li><a href="#education">Education</a></li><li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -255,11 +284,6 @@
           <div class="cs-body"><span class="cs-tag2" style="background:var(--bg);color:var(--ink);border:1px solid rgba(15,18,38,.12);">Paytm · $440M revenue</span><div class="cs-title2">MDR pricing engine</div><div class="cs-desc2">Owned the merchant discount-rate engine for 30M merchants and 10B+ annual transactions. Replaced a flat-rate spreadsheet with a 5-level rule engine and trie-based BIN lookup. Closed margin leakage on BNPL and premium card flows; built a per-instrument leadership P&amp;L view.</div><div class="cs-links"><a class="cs-link-btn" href="#" onclick="event.stopPropagation();openCS(2);return false;">Read case study →</a></div></div>
         </div>
 
-        <div class="cs-card" onclick="openCS(9)">
-          <div class="cs-img" style="background:linear-gradient(135deg,#27795c,#7c6bd6);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Cabinet Grotesk',sans-serif;font-weight:900;font-size:22px;letter-spacing:1px;">INSIGHT</div>
-          <div class="cs-body"><span class="cs-tag2" style="background:var(--bg);color:var(--ink);border:1px solid rgba(15,18,38,.12);">Personal · LLM-assisted</span><div class="cs-title2">InsightDraft — research drafting assistant</div><div class="cs-desc2">A side project exploring LLM-assisted drafting for PM artifacts: research syntheses, PRD outlines, and reviewer-style critique. Built to dogfood prompt design, eval scaffolding, and where to put the human review checkpoint.</div><div class="cs-links"><a class="cs-link-btn" href="https://github.com/PrabhjotAhluwalia/insightdraft" target="_blank" rel="noopener" onclick="event.stopPropagation();">GitHub ↗</a><a class="cs-link-btn" href="#" onclick="event.stopPropagation();openCS(9);return false;">Notes →</a></div></div>
-        </div>
-
         <div class="cs-card" onclick="openCS(3)">
           <div class="cs-img" style="background:linear-gradient(135deg,#5c6075,#0f1226);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Cabinet Grotesk',sans-serif;font-weight:900;font-size:22px;letter-spacing:1px;">AUTOMATION</div>
           <div class="cs-body"><span class="cs-tag2" style="background:var(--bg);color:var(--ink);border:1px solid rgba(15,18,38,.12);">Paytm · Finance ops</span><div class="cs-title2">Project BINARY — invoicing automation</div><div class="cs-desc2">Replaced a 50-person manual invoicing process with an SAP pre-processor middleware. Tens of millions of invoices automated monthly, cycle time cut sharply, and a self-serve merchant download portal that reduced support tickets before backend edge cases were even closed.</div><div class="cs-links"><a class="cs-link-btn" href="#" onclick="event.stopPropagation();openCS(3);return false;">Read case study →</a></div></div>
@@ -281,6 +305,289 @@
         <button class="car-btn" onclick="slide(1)">→</button>
       </div>
     </div>
+  </div>
+</section>
+
+<div class="wdiv" style="background:var(--bg)"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,30 C480,55 960,5 1440,30 L1440,60 L0,60 Z" fill="#ffffff"/></svg></div>
+
+<!-- BUILD PORTFOLIO -->
+<section id="build">
+  <div class="swrap">
+    <div class="ru" style="text-align:center;margin-bottom:40px;">
+      <div class="chip" style="margin:0 auto 14px;display:inline-flex;">Build portfolio</div>
+      <h2 class="stitle" style="text-align:center;">What I build on weekends.</h2>
+      <p class="ssub" style="margin:0 auto;text-align:center;">Public GitHub projects that show how I scope, prototype, and ship AI- and fintech-adjacent products end-to-end — not toy demos. Each card states the problem, the customer, the technical approach, and what makes it interesting from a PM lens.</p>
+    </div>
+
+    <!-- Category 1: Flagship AI + Fintech Systems -->
+    <div class="bp-cat ru" style="transition-delay:.05s">
+      <div class="bp-cat-head">
+        <div class="bp-cat-title">Flagship AI &amp; fintech systems</div>
+        <div class="bp-cat-sub">End-to-end builds · ML · FastAPI · dashboards</div>
+      </div>
+      <div class="bp-grid">
+
+        <div class="bp-card">
+          <div class="bp-card-head">
+            <div>
+              <div class="bp-name">Sentinel — Merchant Risk Scoring</div>
+              <div class="bp-stack">XGBoost · SHAP · FastAPI · React</div>
+            </div>
+            <span class="bp-flag live">Live demo</span>
+          </div>
+          <dl class="bp-meta">
+            <dt>Problem</dt><dd>Flat GMV-tier limits over- and under-throttle merchants, while risk teams need per-decision explanations to satisfy regulator review.</dd>
+            <dt>Product</dt><dd>End-to-end risk scoring service for payments ops and risk reviewers — score plus SHAP-based reason codes per merchant.</dd>
+            <dt>Approach</dt><dd>XGBoost classifier on engineered merchant features, SHAP explanation surface, FastAPI inference layer, React dashboard, confidence-threshold routing.</dd>
+            <dt>PM signal</dt><dd>Demonstrates how to package explainability as product — not as a debug tool — and how to wire HITL fallback into a risk workflow.</dd>
+          </dl>
+          <div class="bp-links">
+            <a class="bp-link primary" href="https://sentinel-merchant-risk.pplx.app" target="_blank" rel="noopener">Live demo ↗</a>
+            <a class="bp-link" href="https://github.com/PrabhjotAhluwalia/merchant-risk-scoring" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+
+        <div class="bp-card">
+          <div class="bp-card-head">
+            <div>
+              <div class="bp-name">KYB-Donut — OCR-free KYB extraction</div>
+              <div class="bp-stack">Donut · FastAPI · Celery · React</div>
+            </div>
+            <span class="bp-flag">Document AI</span>
+          </div>
+          <dl class="bp-meta">
+            <dt>Problem</dt><dd>Indian fintech onboarding pulls structured fields from skewed scans of GST, PAN, and partnership docs — OCR + regex fails silently and manual review is expensive.</dd>
+            <dt>Product</dt><dd>OCR-free document understanding pipeline with a reviewer queue for low-confidence cases and an audit trail for compliance.</dd>
+            <dt>Approach</dt><dd>Donut encoder–decoder model, FastAPI + Celery async workers, synthetic data generation, threshold-routed HITL queue, React reviewer UI.</dd>
+            <dt>PM signal</dt><dd>Shows judgment on where to place confidence thresholds — false-confident extractions weighted more heavily than misses.</dd>
+          </dl>
+          <div class="bp-links">
+            <a class="bp-link primary" href="https://github.com/PrabhjotAhluwalia/kyb-donut" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+
+        <div class="bp-card">
+          <div class="bp-card-head">
+            <div>
+              <div class="bp-name">SettleIQ — Settlement intelligence</div>
+              <div class="bp-stack">Streamlit · SQLite · Multi-agent MCP</div>
+            </div>
+            <span class="bp-flag">Agentic</span>
+          </div>
+          <dl class="bp-meta">
+            <dt>Problem</dt><dd>US payment-ops teams reconcile settlement breaks across acquirers, networks, and internal ledgers with brittle SQL and tribal knowledge.</dd>
+            <dt>Product</dt><dd>Conversational settlement bot for ops analysts — ask in plain English, get a grounded answer with the underlying query and a reason trail.</dd>
+            <dt>Approach</dt><dd>Six-agent MCP-style pipeline (intent → SQL → validator → narrator → critic → router), SQLite mock ledger, Streamlit dashboard.</dd>
+            <dt>PM signal</dt><dd>Shows multi-agent decomposition with explicit critique and routing — the structure that keeps agentic systems debuggable in production.</dd>
+          </dl>
+          <div class="bp-links">
+            <a class="bp-link primary" href="https://github.com/PrabhjotAhluwalia/SettleIQ" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+
+        <div class="bp-card">
+          <div class="bp-card-head">
+            <div>
+              <div class="bp-name">PayCommander — Payment analytics agents</div>
+              <div class="bp-stack">FastAPI · Streamlit · SQLite · Multi-agent</div>
+            </div>
+            <span class="bp-flag">Auditability</span>
+          </div>
+          <dl class="bp-meta">
+            <dt>Problem</dt><dd>Payment-ops MIS lives in static reports; analysts want to ask follow-up questions but lose the audit trail when they jump to ad-hoc SQL.</dd>
+            <dt>Product</dt><dd>Deterministic multi-agent analytics console with ACH and card mock data, full audit logging, and shareable MIS-style reports.</dd>
+            <dt>Approach</dt><dd>FastAPI agent orchestration, Streamlit UI, deterministic tool calls over a SQLite ledger, append-only audit log.</dd>
+            <dt>PM signal</dt><dd>Demonstrates "deterministic-where-it-matters" agent design — LLMs route and narrate, but numbers come from typed tool calls.</dd>
+          </dl>
+          <div class="bp-links">
+            <a class="bp-link primary" href="https://github.com/PrabhjotAhluwalia/paycommander" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+
+        <div class="bp-card">
+          <div class="bp-card-head">
+            <div>
+              <div class="bp-name">MerchVault — Ops &amp; compliance console</div>
+              <div class="bp-stack">Next.js 15 · TypeScript · Tailwind</div>
+            </div>
+            <span class="bp-flag">Frontend</span>
+          </div>
+          <dl class="bp-meta">
+            <dt>Problem</dt><dd>B2B payment gateways need an ops + compliance surface that surfaces risk flags, KYB status, and merchant lifecycle without ten browser tabs.</dd>
+            <dt>Product</dt><dd>Operations &amp; compliance dashboard for the PayForge B2B payment gateway — single pane for ops, risk, and compliance roles.</dd>
+            <dt>Approach</dt><dd>Next.js 15 App Router, TypeScript, Tailwind, role-scoped views, mock data layer designed to swap in a real ledger.</dd>
+            <dt>PM signal</dt><dd>Shows comfort speccing internal-tool UX — the dull but high-leverage product surface that real ops teams live in.</dd>
+          </dl>
+          <div class="bp-links">
+            <a class="bp-link primary" href="https://github.com/PrabhjotAhluwalia/merchvault" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Category 2: AI Product Management Tooling -->
+    <div class="bp-cat ru" style="transition-delay:.1s">
+      <div class="bp-cat-head">
+        <div class="bp-cat-title">AI product-management tooling</div>
+        <div class="bp-cat-sub">Workbenches for PM workflows · evals · review</div>
+      </div>
+      <div class="bp-grid">
+
+        <div class="bp-card">
+          <div class="bp-card-head">
+            <div>
+              <div class="bp-name">InsightDraft — Research → PRD pipeline</div>
+              <div class="bp-stack">Multi-agent · LLM · HITL</div>
+            </div>
+            <span class="bp-flag">PM tooling</span>
+          </div>
+          <dl class="bp-meta">
+            <dt>Problem</dt><dd>Raw user research takes days to turn into a prioritized, defensible PRD — and most of that time is rote synthesis, not judgment.</dd>
+            <dt>Product</dt><dd>Multi-agent pipeline that ingests research notes and emits confidence-scored, prioritized PRDs with a mandatory human review checkpoint.</dd>
+            <dt>Approach</dt><dd>Agent roles for cluster, score, draft, and critique; per-claim confidence scoring; explicit HITL gate before publish.</dd>
+            <dt>PM signal</dt><dd>Built by a PM for PMs — opinionated about where humans must stay in the loop on LLM output.</dd>
+          </dl>
+          <div class="bp-links">
+            <a class="bp-link primary" href="https://github.com/PrabhjotAhluwalia/insightdraft" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+
+        <div class="bp-card">
+          <div class="bp-card-head">
+            <div>
+              <div class="bp-name">SignalMap — App-review intelligence</div>
+              <div class="bp-stack">Clustering · Sentiment · LLM</div>
+            </div>
+            <span class="bp-flag live">Live demo</span>
+          </div>
+          <dl class="bp-meta">
+            <dt>Problem</dt><dd>App-store reviews are a goldmine for PMs but unreadable at scale — and keyword tags miss the themes that actually drive churn or delight.</dd>
+            <dt>Product</dt><dd>Product-intelligence dashboard that clusters reviews into semantic themes and tracks sentiment over time with drill-down.</dd>
+            <dt>Approach</dt><dd>Embedding-based clustering, LLM-assisted theme naming, sentiment timelines, theme-level cohort views.</dd>
+            <dt>PM signal</dt><dd>Frames LLMs as a structured-data extraction layer, not a chat surface — the right pattern for most PM analytics work.</dd>
+          </dl>
+          <div class="bp-links">
+            <a class="bp-link primary" href="https://www.perplexity.ai/computer/a/signalmap-kmJGqFqFRZuiUPlt12aqMg" target="_blank" rel="noopener">Live demo ↗</a>
+            <a class="bp-link" href="https://github.com/PrabhjotAhluwalia/signalmap" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+
+        <div class="bp-card">
+          <div class="bp-card-head">
+            <div>
+              <div class="bp-name">ClauseGuard — Vendor contract auditor</div>
+              <div class="bp-stack">LLM · Compliance · RAG</div>
+            </div>
+            <span class="bp-flag">Compliance</span>
+          </div>
+          <dl class="bp-meta">
+            <dt>Problem</dt><dd>PMs and ops leads sign vendor contracts and privacy policies they cannot reasonably read end-to-end, and legal is the bottleneck.</dd>
+            <dt>Product</dt><dd>AI compliance auditor for vendor contracts and privacy policies — flags risky clauses and references the relevant policy text.</dd>
+            <dt>Approach</dt><dd>Clause segmentation, retrieval over a policy corpus, LLM-assisted risk scoring with cited spans.</dd>
+            <dt>PM signal</dt><dd>Shows judgment on where citation-and-refusal beats raw generation in a regulated workflow.</dd>
+          </dl>
+          <div class="bp-links">
+            <a class="bp-link primary" href="https://github.com/PrabhjotAhluwalia/clauseguard" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+
+        <div class="bp-card">
+          <div class="bp-card-head">
+            <div>
+              <div class="bp-name">ML-PM Masterclass</div>
+              <div class="bp-stack">AI/ML · Deep Learning · LLMs · AI PM</div>
+            </div>
+            <span class="bp-flag">Curriculum</span>
+          </div>
+          <dl class="bp-meta">
+            <dt>Problem</dt><dd>Most "AI for PM" material is either vendor marketing or research papers — there is no concise practitioner curriculum.</dd>
+            <dt>Product</dt><dd>Expanded AI, ML, deep learning, LLMs, and AI product management curriculum aimed at working PMs.</dd>
+            <dt>Approach</dt><dd>Modules covering classical ML, deep learning, LLM systems design, evals, and AI-PM workflows; runnable notebooks where useful.</dd>
+            <dt>PM signal</dt><dd>Demonstrates the depth of mental model I work from when I scope AI features — and that I can teach it.</dd>
+          </dl>
+          <div class="bp-links">
+            <a class="bp-link primary" href="https://github.com/PrabhjotAhluwalia/ML-PM-masterclass" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Category 3: Human-centered / community products -->
+    <div class="bp-cat ru" style="transition-delay:.15s">
+      <div class="bp-cat-head">
+        <div class="bp-cat-title">Human-centered &amp; community products</div>
+        <div class="bp-cat-sub">Real users · learning &amp; cultural impact</div>
+      </div>
+      <div class="bp-grid">
+
+        <div class="bp-card">
+          <div class="bp-card-head">
+            <div>
+              <div class="bp-name">Learn Punjabi</div>
+              <div class="bp-stack">Web app · Language learning</div>
+            </div>
+            <span class="bp-flag">For learners</span>
+          </div>
+          <dl class="bp-meta">
+            <dt>Problem</dt><dd>Diaspora learners want to read and write Gurmukhi but most existing resources are heavy textbooks or unreliable apps.</dd>
+            <dt>Product</dt><dd>Lightweight web app for learning Punjabi / Gurmukhi — script, pronunciation, and core vocabulary.</dd>
+            <dt>Approach</dt><dd>Static front-end with structured lesson progression and pronunciation cues; built to ship and iterate, not to sit in roadmap purgatory.</dd>
+            <dt>PM signal</dt><dd>Customer empathy plus the discipline to scope a v1 that real learners can use today.</dd>
+          </dl>
+          <div class="bp-links">
+            <a class="bp-link primary" href="https://github.com/PrabhjotAhluwalia/learn-punjabi" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+
+        <div class="bp-card">
+          <div class="bp-card-head">
+            <div>
+              <div class="bp-name">Eternal Flame — Sikh history encyclopedia</div>
+              <div class="bp-stack">Interactive web · Content product</div>
+            </div>
+            <span class="bp-flag">Community</span>
+          </div>
+          <dl class="bp-meta">
+            <dt>Problem</dt><dd>Sikh history is fragmented across long-form books and inaccessible archives; younger readers bounce off the format.</dd>
+            <dt>Product</dt><dd>Interactive Sikh history encyclopedia structured around eras, figures, and primary sources.</dd>
+            <dt>Approach</dt><dd>Editorial structure plus a lightweight web reader with cross-linking between figures, events, and source texts.</dd>
+            <dt>PM signal</dt><dd>Long-running content product — taste, structure, and information architecture under self-imposed deadlines.</dd>
+          </dl>
+          <div class="bp-links">
+            <a class="bp-link primary" href="https://github.com/PrabhjotAhluwalia/eternal-flame-sikh-history" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Category 4: Utilities -->
+    <div class="bp-cat ru" style="transition-delay:.2s">
+      <div class="bp-cat-head">
+        <div class="bp-cat-title">Utilities &amp; engineering experiments</div>
+        <div class="bp-cat-sub">Smaller builds for daily workflow</div>
+      </div>
+      <div class="bp-mini">
+        <div class="bp-mini-card">
+          <div class="bp-mini-name">Claude Quota Tracker</div>
+          <div class="bp-mini-desc">Tracks free-tier Claude usage to plan around session limits — built while dogfooding Claude in daily work.</div>
+          <a href="https://github.com/PrabhjotAhluwalia/claude-free-account-quota-tracker" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+        <div class="bp-mini-card">
+          <div class="bp-mini-name">Mac Morning Cleanup</div>
+          <div class="bp-mini-desc">Scripted morning reset for a developer Mac — closes stale apps, archives downloads, resets the desktop state.</div>
+          <a href="https://github.com/PrabhjotAhluwalia/mac-morning-cleanup" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+        <div class="bp-mini-card">
+          <div class="bp-mini-name">The Wake-Up Call</div>
+          <div class="bp-mini-desc">Animal-rights advocacy site — content-led, built as a side project to ship something that mattered to me personally.</div>
+          <a href="https://github.com/PrabhjotAhluwalia/the-wake-up-call" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
